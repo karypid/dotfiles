@@ -55,7 +55,16 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    "bin" = {
+      # This is added to the PATH with home.sessionPath below
+      source = ./mybin;
+      recursive = true;
+    };
   };
+
+  home.sessionPath = [
+    "${config.home.homeDirectory}/bin"
+  ];
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
