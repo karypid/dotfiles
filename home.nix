@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, userSettings, ... }:
 
 {
   imports = [
@@ -8,8 +8,8 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "karypid@ad.home.lan";
-  home.homeDirectory = ''/var/home/karypid@ad.home.lan'';
+  home.username = userSettings.username;
+  home.homeDirectory = ''/var/home/${userSettings.username}'';
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
