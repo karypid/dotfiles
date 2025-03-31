@@ -6,7 +6,7 @@ let
     fastfetch = "/usr/libexec/ublue-fastfetch";
   };
   sourceShD = "
-    source ~/.sh.d/*
+    for f in ~/.sh.d/* ; do source \"$f\" ; done
   ";
 in
 {

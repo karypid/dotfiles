@@ -1,0 +1,4 @@
+[
+#### Direnv
+  ".direnv"
+]
