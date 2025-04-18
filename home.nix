@@ -4,6 +4,7 @@
   imports = [
     ./cli/sh.nix
     ./cli/git.nix
+    ./apps/zed.nix
     # ./eclipse.nix
     # ./alxclipse.nix
   ];
@@ -24,8 +25,8 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.skopeo
+  home.packages = with pkgs; [
+    skopeo
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
