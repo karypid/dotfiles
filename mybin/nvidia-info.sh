@@ -9,7 +9,6 @@ mkdir -p "$DT"
 cat /proc/cmdline > $DT/proc_cmdline
 cat /proc/driver/nvidia/version > $DT/proc_nvidia_version
 cat /proc/driver/nvidia/params | sort > $DT/proc_nvidia_params
-cat /proc/driver/nvidia/params | sort > $DT/proc_nvidia_params
 modinfo nvidia | grep license > $DT/mod_nvidia_license
 
 journalctl -b -k | head -n 2 > $DT/boot_start
