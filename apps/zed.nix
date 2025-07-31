@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     #wayland
     #libdrm
-    #mesa
-    mesa.drivers
+    mesa
+    #mesa.drivers
     # vulkan-tools
     zed-editor
   ];

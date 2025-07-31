@@ -4,6 +4,7 @@ let
   myAliases = {
     ll = "ls -l";
     fastfetch = "/usr/libexec/ublue-fastfetch";
+    mgs = "rm ~/devroot/wc.git/.mgitstatus_last_check ; mgitstatus -d 3 ~/devroot/wc.git";
   };
   sourceShD = "
     for f in ~/.sh.d/* ; do source \"$f\" ; done
@@ -30,22 +31,7 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true; 
-    initExtra = sourceShD;
-
-#    initExtra = ''
-#    PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-#     %F{green}→%f "
-#    RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
-#    [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
-#    bindkey '^P' history-beginning-search-backward
-#    bindkey '^N' history-beginning-search-forward
-#    '';
-
-    oh-my-zsh = {
-      enable = true;
-      theme = "agnoster";
-      # theme = "robbyrussell";
-    };
+    initContent = sourceShD;
   };
 
   programs.direnv = {
@@ -54,8 +40,13 @@ in
     nix-direnv.enable = true;
   };
 
+  programs.starship = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     direnv nix-direnv
+    starship
   ];
 }
 
