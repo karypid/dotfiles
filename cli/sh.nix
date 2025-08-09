@@ -4,7 +4,8 @@ let
   myAliases = {
     ll = "ls -l";
     fastfetch = "/usr/libexec/ublue-fastfetch";
-    mgs = "rm ~/devroot/wc.git/.mgitstatus_last_check ; mgitstatus -d 3 ~/devroot/wc.git";
+    mgs = "mgitstatus -d 3 ~/devroot/wc.git";
+    mgsf = "mgitstatus -d 3 -f ~/devroot/wc.git";
   };
   sourceShD = "
     for f in ~/.sh.d/* ; do source \"$f\" ; done
@@ -32,6 +33,10 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true; 
     initContent = sourceShD;
+
+    oh-my-zsh = {
+      enable = true;
+    };
   };
 
   programs.direnv = {
@@ -42,6 +47,7 @@ in
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
   };
 
   home.packages = with pkgs; [
